@@ -22,22 +22,38 @@ Copy `LauncherConfig.template.json` to `LauncherConfig.json` and fill in your in
 ```json
 {
   "$schema": "LauncherConfig.schema.json",
+  "instructions": "The chosen set of software will be installed in sequence. Follow the instructions for each installer.",
   "entries": [
     {
       "title": "Installer Sequence A",
       "startStep": 0
+    },
+    {
+      "title": "Installer Sequence B",
+      "startStep": 1
     }
   ],
   "steps": [
     {
       "stepMessage": "Installing A1",
       "path": "SequenceA\\setup_A1.exe",
-      "startDelay": 0,
-      "nextStep": 1
+      "startDelay": 0
     },
     {
-      "stepMessage": "Installing A2",
-      "path": "SequenceA\\setup_A2.exe",
+      "stepMessage": "Installing B1",
+      "path": "SequenceB\\setup_B1.exe",
+      "startDelay": 0,
+      "nextStep": 2
+    },
+    {
+      "stepMessage": "Installing B2",
+      "path": "SequenceB\\setup_B2.exe",
+      "startDelay": 0,
+      "nextStep": 3
+    },
+    {
+      "stepMessage": "Installing B3",
+      "path": "SequenceB\\setup_B3.exe",
       "startDelay": 0
     }
   ]
@@ -45,6 +61,13 @@ Copy `LauncherConfig.template.json` to `LauncherConfig.json` and fill in your in
 ```
 
 ### Fields
+
+#### Root
+| Field | Required | Description |
+|---|---|---|
+| `instructions` | ✅ | Instructions displayed to the user in the launcher window beneath the title. |
+| `entries` | ✅ | List of installer sequences shown as buttons. At least one required. |
+| `steps` | ✅ | Ordered list of individual installer steps referenced by entries. At least one required. |
 
 #### `entries`
 | Field | Required | Description |
@@ -75,11 +98,11 @@ Requires [.NET 10 SDK](https://dotnet.microsoft.com/download) and Windows x64.
 dotnet build -c Debug
 ```
 
-**Release** - produces a single self-contained `Trebuchet.exe` with no dependencies in the `Publish/` folder at the solution root:
+**Release** — produces a single self-contained `Trebuchet.exe` with no dependencies in the `Publish/` folder at the solution root:
 ```powershell
 dotnet build -c Release
 ```
 
 ## License
 
-MIT: See [LICENSE.md](LICENSE.md).
+MIT — see [LICENSE.md](LICENSE.md).
