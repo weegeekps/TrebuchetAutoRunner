@@ -1,6 +1,6 @@
 # Trebuchet
 
-A lightweight WPF launcher that runs a sequence of installers in order. Configure one or more installer sequences in a JSON file, select one from the list, and Trebuchet walks through each installer automatically — prompting for confirmation between steps before continuing.
+A lightweight WPF launcher that runs a sequence of installers in order. Configure one or more installer sequences in a JSON file, select one from the list, and Trebuchet walks through each installer automatically and prompts for confirmation between steps before continuing.
 
 Created to help simplify the installation of a sequence of tools off of a flash key for my parents.
 
@@ -75,11 +75,11 @@ Requires [.NET 10 SDK](https://dotnet.microsoft.com/download) and Windows x64.
 dotnet build -c Debug
 ```
 
-**Release** — produces a single self-contained `Trebuchet.exe` with no dependencies in the `Publish/` folder at the solution root:
+**Release** - produces a single self-contained `Trebuchet.exe` with no dependencies in the `Publish/` folder at the solution root:
 ```powershell
 dotnet build -c Release
 ```
 
 ## License
 
-MIT — see [LICENSE.md](LICENSE.md).
+MIT: See [LICENSE.md](LICENSE.md).

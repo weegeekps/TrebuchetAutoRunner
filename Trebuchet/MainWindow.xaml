@@ -19,9 +19,9 @@
         <TextBlock Text="Trebuchet Auto-Runner" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
         <Image Source="/icon.png" Width="64" Height="64"></Image>
         <TextBlock Text="Choose an Installer to Launch" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="10,0,10, 5" />
-        <TextBlock Text="The chosen game will be installed with all DLC in sequence. Once the process is started, follow the instructions for each installer." Width="220"  FontSize="14" TextAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" TextWrapping="Wrap" Margin="0, 0, 0, 10" />
+        <TextBlock Text="{Binding Instructions}" Width="220"  FontSize="14" TextAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" TextWrapping="Wrap" Margin="0, 0, 0, 10" />
         <!-- Buttons will be added here dynamically -->
-        <Button x:Name="ExitButton" Content="Exit" Click="ExitButton_Click" />
+        <Button x:Name="ExitButton" Content="Exit" Click="ExitButton_OnClick" />
         <Button x:Name="OpenAbout" Content="About..." Click="OpenAbout_OnClick"></Button>
     </StackPanel>
 </Window>

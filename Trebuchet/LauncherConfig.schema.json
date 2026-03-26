@@ -4,9 +4,13 @@
   "title": "LauncherConfig",
   "description": "Configuration schema for the Trebuchet launcher.",
   "type": "object",
-  "required": [ "entries", "steps" ],
+  "required": [ "instructions", "entries", "steps" ],
   "additionalProperties": false,
   "properties": {
+    "instructions": {
+      "description": "Instructions shown to the user.",
+      "type": "string"
+    },
     "entries": {
       "description": "The list of launchable entries presented to the user.",
       "type": "array",

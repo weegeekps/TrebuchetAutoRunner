@@ -14,6 +14,12 @@ namespace Trebuchet
         public MainWindow()
         {
             InitializeComponent();
+
+            string instructions = App.Configuration.GetSection("instructions").Value ??
+                                  "Follow the installer instructions.";
+            MainWindowData data = new() { Instructions = instructions };
+            DataContext = data;
+
             PopulateEntryButtons();
         }
 
@@ -23,7 +29,7 @@ namespace Trebuchet
                 .GetSection("entries")
                 .GetChildren();
 
-            int insertIndex = 2;
+            int insertIndex = ButtonList.Children.IndexOf(ExitButton);
 
             foreach (IConfigurationSection entry in entries)
             {
@@ -125,14 +131,14 @@ namespace Trebuchet
             }
         }
 
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        private void ExitButton_OnClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
         private void OpenAbout_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            new AboutWindow { Owner = this }.ShowDialog();
         }
     }
 }

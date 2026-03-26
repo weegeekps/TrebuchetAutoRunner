@@ -1,5 +1,6 @@
 {
   "$schema": "LauncherConfig.schema.json",
+  "instructions": "The chosen set of software will be installed with all software in sequence. Once the process is started, follow the instructions for each installer.",
   "entries": [
     {
       "title": "Installer Sequence A",
