@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "LauncherConfig.schema.json",
+  "title": "LauncherConfig",
+  "description": "Configuration schema for the Trebuchet launcher.",
+  "type": "object",
+  "required": [ "entries", "steps" ],
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "description": "The list of launchable entries presented to the user.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    },
+    "steps": {
+      "description": "The ordered list of steps that can be executed by an entry.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/step"
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "description": "A single launchable entry.",
+      "type": "object",
+      "required": [ "title", "startStep" ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "description": "The display title of the entry.",
+          "type": "string",
+          "minLength": 1
+        },
+        "startStep": {
+          "description": "The zero-based index of the first step to execute for this entry.",
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "step": {
+      "description": "A single executable step in a launch sequence.",
+      "type": "object",
+      "required": [ "stepMessage", "path" ],
+      "additionalProperties": false,
+      "properties": {
+        "stepMessage": {
+          "description": "The message displayed to the user while this step is running.",
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "description": "The relative or absolute path to the executable for this step.",
+          "type": "string",
+          "minLength": 1
+        },
+        "startDelay": {
+          "description": "The delay in milliseconds before this step starts.",
+          "type": "integer",
+          "minimum": 0,
+          "default": 0
+        },
+        "nextStep": {
+          "description": "The zero-based index of the next step to execute after this one completes. Omit on the final step.",
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

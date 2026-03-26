@@ -1,0 +1,37 @@
+{
+  "$schema": "LauncherConfig.schema.json",
+  "entries": [
+    {
+      "title": "Installer Sequence A",
+      "startStep": 0
+    },
+    {
+      "title": "Installer Sequence B",
+      "startStep": 1
+    }
+  ],
+  "steps": [
+    {
+      "stepMessage": "Installing A1",
+      "path": "SequenceA\\setup_A1.exe",
+      "startDelay": 0
+    },
+    {
+      "stepMessage": "Installing B1",
+      "path": "SequenceB\\setup_B1.exe",
+      "startDelay": 0,
+      "nextStep": 2
+    },
+    {
+      "stepMessage": "Installing B2",
+      "path": "SequenceB\\setup_B2.exe",
+      "startDelay": 0,
+      "nextStep": 3
+    },
+    {
+      "stepMessage": "Installing B3",
+      "path": "SequenceB\\setup_B3.exe",
+      "startDelay": 0
+    }
+  ]
+}
